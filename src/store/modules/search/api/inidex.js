@@ -3,7 +3,8 @@ import axios from 'axios';
 import _ from 'lodash';
 
 const urls = {
-  getCbdk: '/basedata/contractLand/list'
+  getway: '',
+  getDetail:''
 };
 export default {
   search(param) {
@@ -39,4 +40,12 @@ export default {
       zoom:16
     }
   },
+  getdetail(param) {
+    return {
+      speed:[
+        {speed:'20km/h',time:'09:00:00'},
+        {speed:'40km/h',time:'15:00:00'}
+      ]
+    }
+  }
 };

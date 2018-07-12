@@ -91,12 +91,19 @@ export default {
       this.$refs.map._map.getCanvas().style.cursor = "";
     },
     clickHandler(e) {
+      let speed = api.getdetail(e);
       new mapboxgl.Popup()
         .setLngLat([e.mapEvent.lngLat.lng, e.mapEvent.lngLat.lat])
         .setHTML(
-          '<div>这是位置经度'+e.mapEvent.lngLat.lng+'纬度'+e.mapEvent.lngLat.lat+'</div>'
+          '<div id="popup"></div>'
         )
         .addTo(this.$refs.map._map);
+        let divele=document.getElementById("popup");
+        let html='';
+        _.each(speed.speed,item=>{
+          html+='<p>速度'+item.speed+'时间'+item.time+'</p>'
+        })
+        divele.innerHTML=html;
     }
   }
 };
